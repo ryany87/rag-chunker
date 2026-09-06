@@ -133,6 +133,10 @@ tokenizer. Leave headroom rather than sizing chunks to an exact model limit.
 python -m pytest tests -q
 ```
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
 MIT, see [LICENSE](LICENSE). Copyright (c) 2026 ryany87.
