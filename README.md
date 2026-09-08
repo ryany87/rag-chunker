@@ -77,6 +77,7 @@ rag-chunker doc.md --max-tokens 512 --overlap 64 | jq -r .text | your-embedder
 | `--array` | off | Emit one indented JSON array instead of JSON lines |
 | `--stats` | off | Print a size summary to stderr |
 | `-o PATH` | stdout | Write the result to a file |
+| `--version` | — | Print the installed version and exit |
 
 Use `-` as the input path to read standard input. `--overlap` must be smaller
 than `--max-tokens`.

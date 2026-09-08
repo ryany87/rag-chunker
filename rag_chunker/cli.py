@@ -4,6 +4,7 @@ import argparse
 import json
 import sys
 
+from . import __version__
 from .chunker import DEFAULT_MAX_TOKENS, DEFAULT_OVERLAP, chunk_markdown
 
 __all__ = ["main", "build_parser"]
@@ -48,6 +49,11 @@ def build_parser():
     parser = argparse.ArgumentParser(
         prog="rag-chunker",
         description="Split a markdown document into retrieval-ready chunks.",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version="%(prog)s " + __version__,
     )
     parser.add_argument("path", help="markdown file to chunk, or - for stdin")
     parser.add_argument(

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- `rag-chunker --version` prints the installed package version and exits.
+
 ## 0.1.0
 
 Initial release.
