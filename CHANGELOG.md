@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.1 - 2026-09-13
 
 - `rag-chunker --version` prints the installed package version and exits.
 
