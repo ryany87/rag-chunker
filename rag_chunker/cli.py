@@ -6,6 +6,7 @@ import sys
 
 from . import __version__
 from .chunker import DEFAULT_MAX_TOKENS, DEFAULT_OVERLAP, chunk_markdown
+from .tokens import estimate_tokens
 
 __all__ = ["main", "build_parser"]
 
@@ -20,9 +21,11 @@ def _read_input(path):
 def _record(chunk, heading_prefix):
     record = chunk.to_dict()
     if not heading_prefix:
-        # to_dict()'s "text" always carries the prefix chunk.text was built
-        # with; swap in the bare body rather than re-deriving it.
+        # to_dict()'s "text" and "token_estimate" both carry the prefix
+        # chunk.text was built with; swap in the bare body's own count so the
+        # record stays internally consistent.
         record["text"] = chunk.body
+        record["token_estimate"] = estimate_tokens(chunk.body)
     return record
 
 

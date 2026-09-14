@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Fix `--no-heading-prefix`: `token_estimate` now matches the bare body it
+  reports alongside, instead of the count for the prefixed text.
+
 ## 0.1.1 - 2026-09-13
 
 - `rag-chunker --version` prints the installed package version and exits.

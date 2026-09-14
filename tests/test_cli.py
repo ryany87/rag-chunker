@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from rag_chunker import __version__
+from rag_chunker import __version__, estimate_tokens
 from rag_chunker.cli import main
 
 
@@ -36,6 +36,7 @@ def test_no_heading_prefix_uses_bare_body(tmp_path, capsys):
 
     record = json.loads(capsys.readouterr().out.strip())
     assert record["text"] == "Hello world."
+    assert record["token_estimate"] == estimate_tokens("Hello world.")
 
 
 def test_array_flag_emits_json_array(tmp_path, capsys):
