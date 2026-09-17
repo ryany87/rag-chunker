@@ -11,7 +11,7 @@ from .markdown import Block, parse_blocks
 from .sentences import split_sentences
 from .tokens import estimate_tokens, fits_budget
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 
 __all__ = [
     "Block",

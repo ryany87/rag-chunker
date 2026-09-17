@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.2 - 2026-09-18
 
 - Fix `--no-heading-prefix`: `token_estimate` now matches the bare body it
   reports alongside, instead of the count for the prefixed text.
