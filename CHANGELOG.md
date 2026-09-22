@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Fix `--stats` under `--no-heading-prefix`: the size summary now reports the
+  bare body token counts that the JSON records actually carry, instead of the
+  prefixed count from the underlying `Chunk` objects.
+
 ## 0.1.2 - 2026-09-18
 
 - Fix `--no-heading-prefix`: `token_estimate` now matches the bare body it

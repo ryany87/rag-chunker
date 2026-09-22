@@ -29,16 +29,15 @@ def _record(chunk, heading_prefix):
     return record
 
 
-def _print_stats(chunks, stream):
-    if not chunks:
+def _print_stats(records, oversized, stream):
+    if not records:
         print("0 chunks", file=stream)
         return
-    tokens = [chunk.token_estimate for chunk in chunks]
-    oversized = sum(1 for chunk in chunks if chunk.oversized)
+    tokens = [record["token_estimate"] for record in records]
     print(
         "%d chunks | tokens min %d avg %d max %d | %d oversized"
         % (
-            len(chunks),
+            len(records),
             min(tokens),
             round(sum(tokens) / len(tokens)),
             max(tokens),
@@ -123,7 +122,8 @@ def main(argv=None):
         print(payload)
 
     if args.stats:
-        _print_stats(chunks, sys.stderr)
+        oversized = sum(1 for chunk in chunks if chunk.oversized)
+        _print_stats(records, oversized, sys.stderr)
 
     return 0
 

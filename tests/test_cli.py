@@ -59,6 +59,22 @@ def test_stats_flag_prints_summary_to_stderr(tmp_path, capsys):
     assert "1 chunks" in err
 
 
+def test_stats_match_bare_body_tokens_with_no_heading_prefix(tmp_path, capsys):
+    doc = tmp_path / "doc.md"
+    doc.write_text("# Title\n\nHello world.\n", encoding="utf-8")
+
+    main([str(doc), "--no-heading-prefix", "--stats"])
+
+    out = capsys.readouterr()
+    record = json.loads(out.out.strip())
+    expected = "tokens min %d avg %d max %d" % (
+        record["token_estimate"],
+        record["token_estimate"],
+        record["token_estimate"],
+    )
+    assert expected in out.err
+
+
 def test_output_flag_writes_to_file(tmp_path):
     doc = tmp_path / "doc.md"
     doc.write_text("# Title\n\nHello world.\n", encoding="utf-8")
