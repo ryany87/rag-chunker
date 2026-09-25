@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.3 - 2026-09-26
 
 - Fix `--stats` under `--no-heading-prefix`: the size summary now reports the
   bare body token counts that the JSON records actually carry, instead of the
